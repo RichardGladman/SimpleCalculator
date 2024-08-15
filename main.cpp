@@ -21,8 +21,8 @@ int main(int argc, char **argv)
 
     char op = argv[2][0];
 
-    if (op != '+' && op != '-' && op != 'x' && op != '/' && op != '%') {
-        std::cerr << "SimpleCalculator understands the operators +, -, x, /, &" << std::endl;
+    if (op != '+' && op != '-' && op != 'x' && op != '/') {
+        std::cerr << "SimpleCalculator understands the operators +, -, x, /" << std::endl;
         return 1;
     }
 
@@ -38,5 +38,18 @@ void interactive_mode()
 
 void calculate(double operand1, double operand2, char op)
 {
-
+    switch (op) {
+    case '+':
+        std::cout << operand1 << " + " << operand2 << " = " << (operand1 + operand2) << std::endl;
+        break;
+    case '-':
+        std::cout << operand1 << " - " << operand2 << " = " << (operand1 - operand2) << std::endl;
+        break;
+    case 'x':
+        std::cout << operand1 << " x " << operand2 << " = " << (operand1 * operand2) << std::endl;
+        break;
+    case '/':
+        std::cout << operand1 << " / " << operand2 << " = " << (operand1 / operand2) << std::endl;
+        break;
+    }
 }
