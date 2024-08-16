@@ -33,7 +33,30 @@ int main(int argc, char **argv)
 
 void interactive_mode()
 {
+    char operation {};
 
+    do {
+        double operand1 {};
+        double operand2 {};
+
+        std::cout << "Enter an operator (Q to quit): ";
+        std::cin >> operation;
+
+        if (operation == 'Q' || operation == 'q') {
+            break;
+        }
+
+        std::cout << "Enter two operands separated by a space: ";
+        std::cin >> operand1 >> operand2;
+
+        if (operation != '+' && operation != '-' && operation != 'x' && operation != '/') {
+            std::cerr << "SimpleCalculator understands the operators +, -, x, /" << std::endl;
+            continue;
+        }
+
+        calculate(operand1, operand2, operation);
+
+    } while (true);
 }
 
 void calculate(double operand1, double operand2, char op)
